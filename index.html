@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ayalowfp web</title>
+  <!-- Подключаем Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Видео на заднем фоне -->
+  <video autoplay muted loop id="background-video">
+    <source src="Miku.mp4" type="video/mp4">
+    Ваш браузер не поддерживает видеофон.
+  </video>
+  <!-- Часы в круглом блоке -->
+<div class="clock-wrapper fade-in">
+    <div class="clock-circle">
+        <div id="clock">00:00:00</div>
+    </div>
+    <select id="timezone"> 
+        <option value="Asia/Aqtau">Казахстан GMT+5</option>
+        </option>
+    </select>
+</div>
+<button id="theme-toggle">🌙</button>
+  <!-- Блок с аватаркой и именем -->
+  <div class="profile">
+    <img src="1crop.png" alt="Аватарка" class="avatar fade-in">
+    <h1 class="fade-in">Аян Аялов</h1>
+  </div>
+
+  <!-- Музыкальный плеер -->
+  <div class="music-player">
+    <button class="play-button" onclick="playAudio(1)">▶️ FE!N - Miku </button>
+    <button class="play-button" onclick="playAudio(2)">▶️ Miku - Miku </button>
+    <button class="pause-button" onclick="pauseAudio()">⏸ Пауза</button>
+
+    <audio id="audio1">
+      <source src="FE!N.mp3" type="audio/mp3">
+    </audio>
+    
+    <audio id="audio2">
+      <source src="Miku.mp3" type="audio/mp3">
+    </audio>
+  </div>
+
+  <!-- Социальные кнопки с иконками -->
+  <div class="social-buttons">
+    <a href="https://t.me/ayalowfp" target="_blank" class="social-btn telegram">
+      <i class="fab fa-telegram"></i> Telegram
+    </a>
+    <a href="https://vk.com/ayalowfp" target="_blank" class="social-btn vk">
+      <i class="fab fa-vk"></i> VK
+    </a>
+    <a href="https://wa.me/77477810534" target="_blank" class="social-btn whatsapp">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+    <a href="https://discord.com/users/960143267503145010" target="_blank" class="social-btn discord">
+      <i class="fab fa-discord"></i> Discord
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
