@@ -1,211 +1,46 @@
-/* Видеофон */
-#background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+/* Основные стили */
+body {
+    overflow-x: hidden; /* Запрещаем горизонтальный скролл */
 }
 
-/* Центрирование блока с аватаркой и именем */
-.profile {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-/* Стили для аватарки */
-.avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Имя под аватаркой */
-.name {
-  font-size: 24px;
-  color: white;
-  margin-top: 10px;
-  font-family: Arial, sans-serif;
-}
-
-/* Часы */
-.clock-container {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-}
-
-#clock {
-  font-size: 24px;
-  margin-top: 5px;
-  font-weight: bold;
-}
-
-/* Стили для выбора часового пояса */
-select {
-  background: transparent;
-  color: white;
-  border: 1px solid white;
-  padding: 5px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Музыкальный плеер */
-.music-player {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.play-button, .pause-button {
-  background: #00aaff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.play-button:hover, .pause-button:hover {
-  background: #0088cc;
-}
-
-/* Блок соцсетей */
+/* Контейнер соцсетей */
 .social-buttons {
-  position: absolute;
-  bottom: 80px; /* Отступ над плеером */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-/* Стили для кнопок соцсетей */
-.social-btn {
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  color: white;
-  font-size: 16px;
-  transition: 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 5px; /* Отступ между иконкой и текстом */
-}
-
-/* Цвета для соцсетей */
-.telegram { background: #0088cc; }
-.vk { background: #0077ff; }
-.whatsapp { background: #25d366; }
-.discord { background: #5865F2; }
-
-.social-btn:hover {
-  filter: brightness(1.2);
-}
-/* Общий контейнер для часов */
-.clock-wrapper {
-    position: absolute;
-    top: 20px;
-    right: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Добавляет расстояние между кнопками */
+    margin-top: 20px; /* Отступ сверху */
+    z-index: 100; /* ✅ Исправлено: Увеличил слой, чтобы кнопки были поверх */
+    max-width: 100%; /* ✅ Исправлено: Ограничил ширину */
 }
 
-/* Круглый стиль для часов */
-.clock-circle {
-    width: 120px;
-    height: 120px;
-    background: rgba(0, 170, 255, 0.8); /* Голубоватый фон */
-    border-radius: 50%;
+/* Общий стиль кнопок */
+.social-buttons a {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 10px rgba(0, 170, 255, 0.6); /* Светящаяся тень */
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    font-family: Arial, sans-serif;
-}
-
-/* Стили для выбора часового пояса */
-#timezone {
-    margin-top: 10px;
-    background: transparent;
-    color: white;
-    border: 1px solid white;
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
+    min-width: auto; /* ✅ Исправлено: Убрал фиксированную ширину */
+    width: 100%; /* ✅ Исправлено: Пусть кнопки занимают всю ширину контейнера */
+    padding: 10px 15px;
+    font-size: 14px;
     text-align: center;
 }
-/* 🔹 Эффект появления блоков */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* 🔹 Свечение кнопок и ссылок при наведении */
-.button, .social-button {
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.button:hover, .social-button:hover {
-    box-shadow: 0 0 15px rgba(0, 170, 255, 0.8);
-    transform: scale(1.05);
-}
-.social-buttons {
-    position: absolute; /* Оставляет кнопки внизу */
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+/* Контейнер плеера */
+.music-player {
     display: flex;
-    gap: 10px; /* Расстояние между кнопками */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 90%; /* Делаем ширину адаптивной */
+    max-width: 350px;
+    margin-top: 20px; /* Отступ сверху */
 }
-h1 {
-    color: white; /* Или другой цвет, который тебе нужен */
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-.social-buttons {
-    position: absolute;
-    bottom: 80px; /* Поднимаем выше плеера */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 15px;
-    z-index: 10; /* Убеждаемся, что кнопки поверх других элементов */
-}
+
 /* 🔹 Стили для кнопки смены темы */
 #theme-toggle {
     position: absolute;
@@ -237,6 +72,8 @@ h1 {
     background: #0b1a33;
     color: white;
 }
+
+/* Медиа-запрос для мобильных экранов */
 @media (max-width: 768px) {
     /* Уменьшаем размер аватарки */
     .avatar {
@@ -258,9 +95,10 @@ h1 {
 
     /* Уменьшаем кнопки соцсетей и делаем их столбиком */
     .social-buttons {
-        flex-direction: column;
+        flex-direction: column; /* ✅ Исправлено: Кнопки в столбик на мобильных */
         align-items: center;
         gap: 10px;
+        width: 100%; /* ✅ Исправлено: Подгоняем контейнер */
     }
 
     /* Подгоняем музыкальный плеер под экран */
@@ -269,49 +107,13 @@ h1 {
         margin: 10px auto;
     }
 }
-body {
-    overflow-x: hidden; /* Запрещаем горизонтальный скролл */
-}
-/* Контейнер соцсетей */
-.social-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px; /* Добавляет расстояние между кнопками */
-    margin-top: 20px; /* Отступ сверху */
-}
 
-/* Общий стиль кнопок */
-.social-buttons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
-    padding: 10px 15px;
-    font-size: 14px;
-    text-align: center;
-}
-
-/* Контейнер плеера */
-.music-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    width: 90%; /* Делаем ширину адаптивной */
-    max-width: 350px;
-    margin-top: 20px; /* Отступ сверху */
-}
-
-/* Медиа-запрос для мобильных экранов */
+/* Медиа-запрос для мобильных экранов до 600px */
 @media (max-width: 600px) {
     .social-buttons {
-        flex-direction: column; /* Кнопки в столбик на мобильных */
+        flex-direction: column; /* ✅ Исправлено: Столбик на мобильных */
         gap: 5px;
+        width: 100%; /* ✅ Исправлено: Подгоняем ширину */
     }
 
     .music-player {
