@@ -230,3 +230,27 @@ h1 {
         width: 100%; /* Растягиваем на всю ширину */
     }
 }
+h1 {
+    position: relative; /* Убедимся, что имя не скрывается */
+    color: white; /* Контрастный цвет */
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Улучшает читаемость */
+    z-index: 5; /* Убедимся, что оно над остальными элементами */
+}
+.social-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Увеличиваем расстояние между кнопками */
+    margin-bottom: 20px; /* Добавляем отступ снизу */
+}
+
+/* Увеличиваем расстояние между соцсетями и плеером */
+.music-player {
+    margin-top: 30px; /* Больше отступ сверху */
+}
+.avatar {
+    margin-bottom: 20px; /* Отодвигаем кнопки соцсетей вниз */
+}
