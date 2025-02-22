@@ -194,3 +194,39 @@ body {
     object-fit: cover;
     z-index: -1;
 }
+h1 {
+    color: white; /* Или другой контрастный цвет */
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Улучшает читаемость */
+}
+.social-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Увеличиваем расстояние */
+}
+
+.social-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px; /* Чуть больше пространства */
+    padding: 12px 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 600px) {
+    .social-buttons {
+        flex-direction: column; /* Располагаем кнопки в столбик */
+        align-items: center;
+        gap: 8px; /* Уменьшаем расстояние между кнопками */
+    }
+
+    .music-player {
+        width: 100%; /* Растягиваем на всю ширину */
+    }
+}
