@@ -182,3 +182,6 @@ body {
         margin-right: 8px;
     }
 }
+body {
+    border: 5px solid red !important;
+}
