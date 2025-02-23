@@ -1,32 +1,94 @@
-/* Основные стили */
+/* 🔹 Стили для всего сайта */
 body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1a33;
+    color: white;
+    text-align: center;
     overflow-x: hidden; /* Запрещаем горизонтальный скролл */
 }
 
-/* Контейнер соцсетей */
+/* 🔹 Фоновое видео */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* 🔹 Контейнер страницы */
+.container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* 🔹 Аватарка */
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-bottom: 10px;
+}
+
+/* 🔹 Имя пользователя */
+h1 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+/* 🔹 Часы в кружочке */
+.clock-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 🔹 Контейнер соцсетей */
 .social-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* Добавляет расстояние между кнопками */
-    margin-top: 20px; /* Отступ сверху */
-    z-index: 100; /* ✅ Исправлено: Увеличил слой, чтобы кнопки были поверх */
-    max-width: 100%; /* ✅ Исправлено: Ограничил ширину */
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 400px;
 }
 
-/* Общий стиль кнопок */
+/* 🔹 Общий стиль кнопок */
 .social-buttons a {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: auto; /* ✅ Исправлено: Убрал фиксированную ширину */
-    width: 100%; /* ✅ Исправлено: Пусть кнопки занимают всю ширину контейнера */
+    min-width: 120px;
     padding: 10px 15px;
     font-size: 14px;
     text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-/* Контейнер плеера */
+.social-buttons a:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* 🔹 Контейнер плеера */
 .music-player {
     display: flex;
     flex-direction: column;
@@ -36,12 +98,12 @@ body {
     padding: 15px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    width: 90%; /* Делаем ширину адаптивной */
+    width: 90%;
     max-width: 350px;
-    margin-top: 20px; /* Отступ сверху */
+    margin-top: 30px;
 }
 
-/* 🔹 Стили для кнопки смены темы */
+/* 🔹 Кнопка смены темы */
 #theme-toggle {
     position: absolute;
     top: 20px;
@@ -73,7 +135,7 @@ body {
     color: white;
 }
 
-/* Медиа-запрос для мобильных экранов */
+/* 🔹 Адаптация под мобильные */
 @media (max-width: 768px) {
     /* Уменьшаем размер аватарки */
     .avatar {
@@ -88,169 +150,35 @@ body {
 
     /* Часы меньше и центрируем */
     .clock-wrapper {
-        width: 80%;
-        margin: 0 auto;
-        text-align: center;
+        width: 100px;
+        height: 100px;
+        font-size: 18px;
+        margin-bottom: 15px;
     }
 
-    /* Уменьшаем кнопки соцсетей и делаем их столбиком */
+    /* Соцсети в 2 колонки */
     .social-buttons {
-        flex-direction: column; /* ✅ Исправлено: Кнопки в столбик на мобильных */
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
-        width: 100%; /* ✅ Исправлено: Подгоняем контейнер */
+        max-width: 280px;
+        margin: 0 auto;
     }
 
-    /* Подгоняем музыкальный плеер под экран */
-    .music-player {
-        width: 90%;
-        margin: 10px auto;
-    }
-}
-
-/* Медиа-запрос для мобильных экранов до 600px */
-@media (max-width: 600px) {
-    .social-buttons {
-        flex-direction: column; /* ✅ Исправлено: Столбик на мобильных */
-        gap: 5px;
-        width: 100%; /* ✅ Исправлено: Подгоняем ширину */
-    }
-
-    .music-player {
-        width: 100%; /* Растягиваем на всю ширину */
-    }
-}
-@media (max-width: 600px) {
-    /* Контейнер соцсетей - делаем кнопки в столбик */
-    .social-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px; /* Увеличиваем отступ между кнопками */
-        width: 100%; /* Растягиваем контейнер */
-    }
-
-    /* Общий стиль кнопок */
+    /* Уменьшаем кнопки соцсетей */
     .social-buttons a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80%; /* Делаем кнопки шире */
-        max-width: 250px; /* Ограничиваем максимальную ширину */
-        padding: 12px;
-        font-size: 16px;
+        min-width: 100px;
+        padding: 8px 10px;
+        font-size: 12px;
     }
 
-    /* Музыкальный плеер */
+    /* Часы и имя — отделяем от кнопок */
+    .clock-wrapper {
+        margin-bottom: 20px;
+    }
+
+    /* Музыкальный плеер — отделяем от кнопок */
     .music-player {
-        width: 90%;
-        max-width: 350px;
+        margin-top: 30px;
     }
-}
-@media (max-width: 600px) {
-    /* Контейнер соцсетей */
-    .social-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px; /* Увеличиваем отступ между кнопками */
-        width: 100%;
-    }
-
-    /* Общий стиль кнопок */
-    .social-buttons a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 90%; /* Делаем кнопки шире */
-        max-width: 260px; /* Ограничиваем максимальную ширину */
-        padding: 14px;
-        font-size: 16px;
-    }
-
-    /* Музыкальный плеер */
-    .music-player {
-        width: 90%;
-        max-width: 350px;
-        margin-top: 10px; /* Добавляем небольшой отступ сверху */
-    }
-
-    /* Уменьшаем высоту иконок в кнопках */
-    .social-buttons a img {
-        height: 20px;
-        width: 20px;
-        margin-right: 8px;
-    }
-}
-body {
-    border: 5px solid red !important;
-}
-#background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-h1 {
-    color: white; /* Или другой контрастный цвет */
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Улучшает читаемость */
-}
-.social-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px; /* Увеличиваем расстояние */
-}
-
-.social-buttons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 140px; /* Чуть больше пространства */
-    padding: 12px 15px;
-    font-size: 16px;
-    text-align: center;
-}
-
-/* Для мобильных устройств */
-@media (max-width: 600px) {
-    .social-buttons {
-        flex-direction: column; /* Располагаем кнопки в столбик */
-        align-items: center;
-        gap: 8px; /* Уменьшаем расстояние между кнопками */
-    }
-
-    .music-player {
-        width: 100%; /* Растягиваем на всю ширину */
-    }
-}
-h1 {
-    position: relative; /* Убедимся, что имя не скрывается */
-    color: white; /* Контрастный цвет */
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Улучшает читаемость */
-    z-index: 5; /* Убедимся, что оно над остальными элементами */
-}
-.social-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px; /* Увеличиваем расстояние между кнопками */
-    margin-bottom: 20px; /* Добавляем отступ снизу */
-}
-
-/* Увеличиваем расстояние между соцсетями и плеером */
-.music-player {
-    margin-top: 30px; /* Больше отступ сверху */
-}
-.avatar {
-    margin-bottom: 20px; /* Отодвигаем кнопки соцсетей вниз */
 }
